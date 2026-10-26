@@ -1,6 +1,8 @@
 import { Workout } from "@/types/workout";
 
-const BASE = "https://api.abcz.workers.dev/api/fitlog";
+const BASE =
+  process.env.NEXT_PUBLIC_SERVER_BASE_URL ||
+  "https://api.abcz.workers.dev/api/fitlog";
 
 export const getWorkouts = async (): Promise<Workout[]> => {
   const res = await fetch(BASE, { cache: "no-store" });
